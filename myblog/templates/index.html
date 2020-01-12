@@ -6,18 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ title }} - Yiling's Blog</title>
     {% load static %}
-    <link href="{% static 'css/bootstrap-theme.min.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
     <style type = "text/css">
         body{
             background-image: url(../static/img/index_bkg.png);
             background-size: cover;
         }
+        .let-center{
+            position:absolute;
+            left:50%;
+            transform:translate(-50%);
+            -ms-transform:translate(-50%)
+        }
     </style>
 </head>
 <body>
-    
+    <div class="col-xs-12">
+    <div class="let-center" class="col-xs-12">
+        <img src="{% static 'img/index_icon.png' %}" class="col-xs-12">
+            <div style="position:absolute;top:54%;left:0%;z-index:1">
+                <a href="/zhcn_index">
+                    <img src="{% static 'img/index_zhcn.png' %}" class="col-xs-12" onmouseover="add_shadow(this)" onmouseout="rm_shadow(this)">
+                </a>
+            </div>
+            <div style="position:absolute;top:70%;left:20%;z-index:1">
+                <a href="/en_index">
+                    <img src="{% static 'img/index_en.png'%}" class="col-xs-12" onmouseover="add_shadow(this)" onmouseout="rm_shadow(this)">
+                </a>
+            </div>
+
+            
+    </div>
+    </div>
+        
 
     <script src="{% static 'js/jquery_3.31.min.js' %}"></script>
+    <script src="{% static 'js/effects.js' %}"></script>
 </body>
 </html>

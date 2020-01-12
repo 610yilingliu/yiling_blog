@@ -1,0 +1,25 @@
+{% extends "main_format_en.html" %}
+{% block content %}
+
+{% for article in articles %}
+<div class="col-md-12">
+    <h3 style="display:inline;">{{ article.title }}</h3>
+    <span style="float:right;margin-right:5%">Category: {{article.category.name}}</span>
+</div>
+<div class="col-md-12">
+    <p>{{ article.summary }}</p>
+</div>
+<div class='time col-md-6'>
+    Posted {{ article.create_time }}
+</div>
+<div class='time col-md-6'>
+    Tags:&nbsp
+    {% for tag in article.tags.all %}
+    <span style="background-color: rgb(177, 176, 176);color:white;font-size: smaller;">&nbsp;{{tag.name}}&nbsp;</span>&nbsp;
+    {% endfor %}
+</div>
+<div class="line"></div>
+{% empty %}
+<div>No Article Found!</div>
+{% endfor %}
+{% endblock %}
