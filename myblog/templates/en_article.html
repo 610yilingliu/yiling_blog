@@ -1,0 +1,21 @@
+{% extends "main_format_en.html" %}
+{% block content %}
+<h2 style="text-align: center;">{{ article.title }}</h2>
+<div style="text-align: right;margin-right:5%;margin-top: 3%;" >
+    <div>Category: {{ article.category }}</div>
+    <div>Created Time: {{ article.create_time }}</div>
+</div>
+<div style="margin-top:3%;margin-left:10%;margin-right:10%">
+    <p>
+    {{article.body | safe}}
+    </p>
+</div>
+<div style="text-align: right;margin-right:5%;margin-top:3%">Last Edited on: {{ article.modify_time }}</div>
+<div class="line"></div>
+<div style="font-size:larger">
+    Tags: 
+    {% for tag in article.tags.all %}
+        <span class="tags"> &nbsp;{{tag.name}}&nbsp;</span>
+    {% endfor %}
+</div>
+{% endblock %}

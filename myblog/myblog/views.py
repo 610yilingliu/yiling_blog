@@ -1,7 +1,8 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import *
-import markdown
+from markdown import markdown
+
 
 
 
@@ -21,3 +22,19 @@ def zhcn_index(request):
     return render(request, 'index.html', context = {
         'title': '不正经的二次元杂物堆放地'
     })
+
+def article(request, pk):
+    article =get_object_or_404(Article, pk=pk)
+    config = {
+        'codehilite': {
+            'use_pygments': False,
+            'css_class': 'prettyprint linenums',
+        }
+    }
+    article.body = markdown(article.body, extensions=['codehilite'], extension_configs=config)
+    return render(request, 'en_article.html', context={
+        'title': 'Article',
+        'article': article
+    })
+
+    

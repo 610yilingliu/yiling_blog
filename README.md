@@ -7,3 +7,6 @@ To run django server:
 
 To run terminal in this project:
 `python manage.py shell`
+
+To start Virtual Environment:
+`venv\Scripts\activate`
