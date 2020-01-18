@@ -36,41 +36,29 @@
                 <li>
                     <a href="/">Home</a>
                     <a href="#">About Yiling</a>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">View By Timeline</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
                 </li>
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tags</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
+                        {% for tag in tgs %}
                         <li>
-                            <a href="#">Page 1</a>
-                        </li>
+                            <a href="/tags/{{tag.pk}}">{{tag.name}}</a>
+                        </li>   
+                        {% empty %}
                         <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
+                            No Tag Exist
+                        </li>                     
+                        {% endfor %}
                     </ul>
                 </li>
             </ul>
 
             <ul class="list-unstyled CTAs">
                 <li>
-                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Email Me</a>
+                    <a href="mailto:yilingliu1994@gmail.com" class="download">Email Me</a>
                 </li>
                 <li>
-                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">My Github</a>
+                    <a href="#" onClick="window.open('https://github.com/610yilingliu', '_blank')"" class="article">My Github</a>
                 </li>
             </ul>
         </nav>
@@ -95,18 +83,16 @@
                             <li class="nav-item" id="all">
                                 <a class="nav-link" href="/en_index">All</a>
                             </li>
-                            <li class="nav-item" id="Machine_Learning">
-                                <a class="nav-link" href="#">Machine Learning</a>
+                            {% for cat in cats %}
+                            <li class="nav-item" id="{{ cat.name }}">
+                                <a class="nav-link" href="/categories/{{ cat.pk }}">{{ cat.name }}</a>
                             </li>
-                            <li class="nav-item" id="Tricks_in_Coding">
-                                <a class="nav-link" href="#">Tricks in Coding</a>
+                            {% empty %}
+                            <li class="nav-item">
+                                No Category Now
                             </li>
-                            <li class="nav-item" id="Useful_Tools">
-                                <a class="nav-link" href="#">Useful Tools</a>
-                            </li>
-                            <li class="nav-item" id="Others">
-                                <a class="nav-link" href="#">Others</a>
-                            </li>
+                            {% endfor %}
+
                         </ul>
                     </div>
                 </div>
