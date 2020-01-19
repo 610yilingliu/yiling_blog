@@ -24,6 +24,6 @@ urlpatterns = [
     path('zhcn_index/', views.zhcn_index, name ='zhcn_index'),
     path('en_index/', views.en_index, name = 'en_index'),
     path('article_en/<int:pk>/', views.article, name='article'),
-    path('tags/<int:pk>/', views.tags, name='tags'),
-    path('categories/<int:pk>/', views.categories, name='categories'),
+    path('en_tags/<int:pk>/', views.en_tags, name='en_tags'),
+    path('en_categories/<int:pk>/', views.en_categories, name='en_categories'),
 ]

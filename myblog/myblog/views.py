@@ -54,10 +54,10 @@ def article(request, pk):
         'cats' :cat_list_en(request)
     })
 
-def tags(request, pk):
-    article_objs = Article.objects.filter(tags__pk=pk).order_by('-create_time')
+def en_tags(request, pk):
+    article_objs = Article.objects.filter(tags__pk=pk, language__name="English").order_by('-create_time')
     current_tag = Tag.objects.filter(pk=pk).first().name
-    return render(request, 'tag.html', context={
+    return render(request, 'en_tag.html', context={
         'title': 'Tag ' + current_tag,
         'tag_name': current_tag,
         'articles' : article_objs,
@@ -65,10 +65,10 @@ def tags(request, pk):
         'cats' :cat_list_en(request)
     })
     
-def categories(request, pk):
-    article_objs = Article.objects.filter(category__pk=pk).order_by('-create_time')
+def en_categories(request, pk):
+    article_objs = Article.objects.filter(category__pk=pk, language__name="English").order_by('-create_time')
     current_cat = Category.objects.filter(pk=pk).first().name
-    return render(request, 'category.html', context={
+    return render(request, 'en_category.html', context={
         'title': 'Category ' + current_cat,
         'cat_name': current_cat,
         'articles' : article_objs,

@@ -42,7 +42,7 @@
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         {% for tag in tgs %}
                         <li>
-                            <a href="/tags/{{tag.pk}}">{{tag.name}}</a>
+                            <a href="/en_tags/{{tag.pk}}">{{tag.name}}</a>
                         </li>   
                         {% empty %}
                         <li>
@@ -85,7 +85,7 @@
                             </li>
                             {% for cat in cats %}
                             <li class="nav-item" id="{{ cat.name }}">
-                                <a class="nav-link" href="/categories/{{ cat.pk }}">{{ cat.name }}</a>
+                                <a class="nav-link" href="/en_categories/{{ cat.pk }}">{{ cat.name }}</a>
                             </li>
                             {% empty %}
                             <li class="nav-item">
