@@ -75,3 +75,4 @@ def categories(request, pk):
         'tgs' : tag_list_en(request),
         'cats' :cat_list_en(request)
     })
+
