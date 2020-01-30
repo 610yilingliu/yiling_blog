@@ -25,7 +25,7 @@ SECRET_KEY = '86uatb6u@tqx@cff_g1$4=9)bza)sq%7ndv1^w!9^vhro87_0w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ec2-18-141-11-2.ap-southeast-1.compute.amazonaws.com']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 'myblog'
     'myblog.admin_config.BlogConfig',
+    'gunicorn',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,6 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_URL = '/static/'
+
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')

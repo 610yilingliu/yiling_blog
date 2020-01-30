@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 
 app_name = 'myblog'
@@ -26,4 +28,4 @@ urlpatterns = [
     path('article_en/<int:pk>/', views.article, name='article'),
     path('en_tags/<int:pk>/', views.en_tags, name='en_tags'),
     path('en_categories/<int:pk>/', views.en_categories, name='en_categories'),
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
